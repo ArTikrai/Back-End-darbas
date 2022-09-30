@@ -67,7 +67,6 @@ const update = async (req, res) => {
       newCategoryData,
       { new: true },
     );
-
     if (updatedCategory === null) throw createCategoryNotFoundError(categoryId);
 
     res.status(200).json(updatedCategory);
