@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -31,6 +32,7 @@ try {
     }
 
     console.log('Connected to MongoDB Atlass');
+    // eslint-disable-next-line no-shadow
     server.listen(SERVER_PORT, (err) => {
       if (err) {
         console.error(err.message);
