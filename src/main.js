@@ -9,7 +9,7 @@ const apiRouter = require('./api-router');
 const server = express();
 
 // eslint-disable-next-line no-undef
-const {SERVER_DOMAIN, SERVER_PROTOCOL, SERVER_PORT, DB_CONNECTION} = process.env;
+const { SERVER_DOMAIN, SERVER_PROTOCOL, SERVER_PORT, DB_CONNECTION } = process.env;
 // eslint-disable-next-line max-len
 const constantsConfiguredInEnvFile = SERVER_DOMAIN && SERVER_PROTOCOL && SERVER_PORT && DB_CONNECTION;
 
