@@ -34,9 +34,6 @@ const create = async (req, res) => {
       password,
       fullname,
       role,
-      cartItems,
-      favoredMovies,
-      img,
     } = requestData;
 
     const newUserDoc = await UserModel.create({
@@ -44,9 +41,6 @@ const create = async (req, res) => {
       password: await hashPassword(password),
       fullname,
       role,
-      cartItems,
-      favoredMovies,
-      img,
     });
 
     res.status(201).json(createUserViewModel(newUserDoc));
@@ -64,7 +58,6 @@ const replace = async (req, res) => {
       password,
       fullname,
       role,
-      cartItems,
       favoredCups,
       img,
     } = requestData;
@@ -79,7 +72,6 @@ const replace = async (req, res) => {
         password: await hashPassword(password),
         fullname,
         role,
-        cartItems,
         favoredCups,
         img,
         createdAt: new Date(),
