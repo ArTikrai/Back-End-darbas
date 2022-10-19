@@ -6,7 +6,7 @@ const {
   replace,
   update,
   remove,
-} = require('../controllers/movies-controller');
+} = require('../../controllers/movies-controller');
 
 const moviesRouter = Router();
 

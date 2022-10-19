@@ -1,5 +1,3 @@
-"use strict";
-
 const isStatusCode = (code) => typeof code === 'number' && code >= 100 && code <= 599;
 
 class RequestError extends Error {
