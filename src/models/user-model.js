@@ -25,7 +25,7 @@ const userSchema = Schema({
     type: [{
       movieId: {
         type: Schema.Types.ObjectId,
-        ref: 'Cup',
+        ref: 'Movie',
         required: true,
       },
       amount: {

@@ -5,7 +5,7 @@ const createMoviePopulatedViewModel = (moviePopulatedDoc) => ({
   title: moviePopulatedDoc.title,
   description: moviePopulatedDoc.description,
   category: createCategoryViewModel(moviePopulatedDoc.categoryId),
-  images: moviePopulatedDoc.images,
+  img: moviePopulatedDoc.img,
   price: moviePopulatedDoc.price,
   createdAt: moviePopulatedDoc.createdAt,
   updatedAt: moviePopulatedDoc.updatedAt,

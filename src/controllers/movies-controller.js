@@ -63,10 +63,10 @@ const create = async (req, res) => {
 const replace = async (req, res) => {
   const movieId = req.params.id;
   const {
-    title, description, categoryId, images, price,
+    title, description, categoryId, img, price,
   } = req.body;
   const newMovieData = {
-    title, description, categoryId, images, price,
+    title, description, categoryId, img, price,
   };
 
   try {
@@ -94,7 +94,7 @@ const update = async (req, res) => {
       title,
       description,
       categoryId,
-      images,
+      img,
       price,
     } = requestData;
 
@@ -104,7 +104,7 @@ const update = async (req, res) => {
         title,
         description,
         categoryId,
-        images,
+        img,
         price,
       },
       { new: true },
