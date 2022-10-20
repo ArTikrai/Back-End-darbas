@@ -42,7 +42,7 @@ const userSchema = Schema({
   timestamps: true,
 });
 
-const cartItemValidationSchema = yup.object({
+const watchlistValidationSchema = yup.object({
   movieId: yup.string().typeError('User.watchlist element.movieId must be a string')
     .required('User.watchlist element.movieId is required')
     .test(
@@ -101,7 +101,7 @@ const userValidationSchema = yup.object({
   role: yup.string().typeError('User.role must be a string')
     .oneOf(['USER', 'ADMIN']),
 
-  watchlist: yup.array(cartItemValidationSchema),
+  watchlist: yup.array(watchlistValidationSchema),
 
   img: yup.string().typeError('User.img must be a string'),
 });
@@ -137,14 +137,14 @@ const userUpdateValidationSchema = yup.object({
   role: yup.string().typeError('User.role must be a string')
     .oneOf(['USER', 'ADMIN']),
 
-  watchlist: yup.array(cartItemValidationSchema),
+  watchlist: yup.array(watchlistValidationSchema),
 
   img: yup.string().typeError('User.img must be a string'),
 });
 
 userSchema.statics.validateData = (userData) => userValidationSchema.validate(userData);
 userSchema.statics.validateUpdateData = (userData) => userUpdateValidationSchema.validate(userData);
-userSchema.statics.validateCartItem = (cartItem) => cartItemValidationSchema.validate(cartItem);
+userSchema.statics.validateCartItem = (cartItem) => watchlistValidationSchema.validate(cartItem);
 
 const UserModel = model('User', userSchema);
 

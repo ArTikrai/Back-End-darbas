@@ -1,5 +1,5 @@
 const createWatchlistWiewModel = (watchlistDoc) => ({
-  cupId: watchlistDoc.movieId.toString(),
+  movieId: watchlistDoc.movieId.toString(),
   amount: watchlistDoc.amount,
 });
 

@@ -33,13 +33,12 @@ const register = async (req, res) => {
   try {
     await UserModel.validateData(requestData);
     const {
-      email, password, img, fullname,
+      email, password, fullname,
     } = requestData;
 
     const userDoc = await UserModel.create({
       email,
       password: await hashPassword(password),
-      img,
       fullname,
     });
 
