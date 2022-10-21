@@ -19,7 +19,7 @@ const create = async (req, res) => {
     await UserModel.validateWatchlist(data);
 
     const foundMovie = findMovie(req.authUser.watchlist, data.movieId);
-    if (foundMovie) throw createBadDataError('Movie already exist in cart');
+    if (foundMovie) throw createBadDataError('Movie already exist in watchlist');
 
     const newWatchlistDoc = {
       movieId: data.movieId,
@@ -46,7 +46,7 @@ const update = async (req, res) => {
     await UserModel.validateWatchlist(data);
 
     const foundWatchlistDoc = findMovie(req.authUser.watchlist, data.movieId);
-    if (!foundWatchlistDoc) throw createNotFoundError('Movie does not exist in cart');
+    if (!foundWatchlistDoc) throw createNotFoundError('Movie does not exist in watchlist');
 
     foundWatchlistDoc.amount = data.amount;
 
@@ -63,7 +63,7 @@ const remove = async (req, res) => {
 
   try {
     const foundWatchlistDoc = findMovie(req.authUser.watchlist, movieId);
-    if (!foundWatchlistDoc) throw createNotFoundError('Movie does not exist in cart');
+    if (!foundWatchlistDoc) throw createNotFoundError('Movie does not exist in watchlist');
 
     req.authUser.watchlist = req.authUser.watchlist.filter((x) => x.movieId.toString() !== movieId);
 

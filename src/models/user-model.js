@@ -144,7 +144,8 @@ const userUpdateValidationSchema = yup.object({
 
 userSchema.statics.validateData = (userData) => userValidationSchema.validate(userData);
 userSchema.statics.validateUpdateData = (userData) => userUpdateValidationSchema.validate(userData);
-userSchema.statics.validateCartItem = (cartItem) => watchlistValidationSchema.validate(cartItem);
+// eslint-disable-next-line max-len
+userSchema.statics.validateWatchlistMovie = (watchlistMovie) => watchlistValidationSchema.validate(watchlistMovie);
 
 const UserModel = model('User', userSchema);
 

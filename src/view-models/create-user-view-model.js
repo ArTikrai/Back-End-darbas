@@ -4,7 +4,7 @@ const createUserViewModel = (userDoc) => ({
   id: userDoc._id.toString(),
   email: userDoc.email,
   role: userDoc.role,
-  cartItems: userDoc.watchlist.map(createWatchlistItemViewModel),
+  watchlistMovie: userDoc.watchlist.map(createWatchlistItemViewModel),
   fullname: userDoc.fullname,
   createdAt: userDoc.createdAt,
   updatedAt: userDoc.updatedAt,

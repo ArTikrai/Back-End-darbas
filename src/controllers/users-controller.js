@@ -58,7 +58,7 @@ const replace = async (req, res) => {
       password,
       fullname,
       role,
-      favoredCups,
+      favoredMovies,
       img,
     } = requestData;
 
@@ -72,7 +72,7 @@ const replace = async (req, res) => {
         password: await hashPassword(password),
         fullname,
         role,
-        favoredCups,
+        favoredMovies,
         img,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -98,8 +98,7 @@ const update = async (req, res) => {
       password,
       fullname,
       role,
-      cartItems,
-      favoredCups,
+      favoredMovies,
       img,
     } = requestData;
 
@@ -110,8 +109,7 @@ const update = async (req, res) => {
         password: password && await hashPassword(password),
         fullname,
         role,
-        cartItems,
-        favoredCups,
+        favoredMovies,
         img,
       },
       { new: true },
