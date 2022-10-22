@@ -1,5 +1,7 @@
 const UserModel = require('../models/user-model');
 const createWatchlistViewModel = require('../view-models/create-watchlist-view-model');
+const createToken = require('../helpers/token');
+
 const {
   createBadDataError,
   createNotFoundError,
@@ -18,19 +20,21 @@ const create = async (req, res) => {
   try {
     await UserModel.validateWatchlist(data);
 
-    const foundMovie = findMovie(req.authUser.watchlist, data.movieId);
+    const foundMovie = findMovie(req.authUser.watchlistMovie, data.movieId);
     if (foundMovie) throw createBadDataError('Movie already exist in watchlist');
 
     const newWatchlistDoc = {
       movieId: data.movieId,
-      amount: data.amount,
     };
 
-    req.authUser.watchlist.push(newWatchlistDoc);
+    req.authUser.watchlistMovie.push(newWatchlistDoc);
 
     await req.authUser.save();
 
-    res.status(200).json(createWatchlistViewModel(newWatchlistDoc));
+    res.status(200).json({
+      watchlist: createWatchlistViewModel(newWatchlistDoc),
+      token: createToken({ email: req.authUser.email, role: req.authUser.role }),
+    });
   } catch (error) {
     sendErrorResponse(error, res);
   }

@@ -17,6 +17,6 @@ authRouter.post('/register', register);
 
 authRouter.post('/check-email', checkEmail);
 
-authRouter.patch('/update-profile', requireAuth);
+authRouter.patch('/watchlist', requireAuth);
 
 module.exports = authRouter;
