@@ -6,7 +6,10 @@ const createMoviePopulatedViewModel = (moviePopulatedDoc) => ({
   description: moviePopulatedDoc.description,
   category: createCategoryViewModel(moviePopulatedDoc.categoryId),
   img: moviePopulatedDoc.img,
-  price: moviePopulatedDoc.price,
+  bigImg: moviePopulatedDoc.bigImg,
+  trailer: moviePopulatedDoc.trailer,
+  play: moviePopulatedDoc.play,
+  date: moviePopulatedDoc.date,
   createdAt: moviePopulatedDoc.createdAt,
   updatedAt: moviePopulatedDoc.updatedAt,
 });

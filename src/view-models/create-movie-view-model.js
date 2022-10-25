@@ -4,7 +4,10 @@ const createMovieViewModel = (movieDoc) => ({
   description: movieDoc.description,
   categoryId: movieDoc.categoryId.toString(),
   img: movieDoc.img,
-  price: movieDoc.price,
+  bigImg: movieDoc.bigImg,
+  trailer: movieDoc.trailer,
+  play: movieDoc.play,
+  date: movieDoc.date,
   createdAt: movieDoc.createdAt,
   updatedAt: movieDoc.updatedAt,
 });

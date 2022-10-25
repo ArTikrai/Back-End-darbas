@@ -19,8 +19,20 @@ const movieSchema = Schema({
     type: String,
     required: true,
   },
-  price: {
+  bigImg: {
+    type: String,
+    required: true,
+  },
+  date: {
     type: Number,
+    required: true,
+  },
+  trailer: {
+    type: String,
+    required: true,
+  },
+  play: {
+    type: String,
     required: true,
   },
 }, {
@@ -45,7 +57,16 @@ const movieValidationSchema = yup.object().shape({
   img: yup
     .string().typeError('Movie.img must be a string')
     .required('Movie.img is required'),
-  price: yup
+  bigImg: yup
+    .string().typeError('Movie.img must be a string')
+    .required('Movie.img is required'),
+  trailer: yup
+    .string().typeError('Movie.img must be a string')
+    .required('Movie.img is required'),
+  play: yup
+    .string().typeError('Movie.img must be a string')
+    .required('Movie.img is required'),
+  date: yup
     .number().typeError('Movie.price must be a number')
     .required('Movie.price is required')
     .positive('Movie.price must be positive'),
@@ -61,7 +82,13 @@ const movieUpdateValidationSchema = yup.object().shape({
       Types.ObjectId.isValid,
     ),
   img: yup.string().typeError('Movie.img must be a string'),
-  price: yup.number()
+  bigImg: yup
+    .string().typeError('Movie.img must be a string'),
+  trailer: yup
+    .string().typeError('Movie.img must be a string'),
+  play: yup
+    .string().typeError('Movie.img must be a string'),
+  date: yup.number()
     .typeError('Movie.price must be a number')
     .positive('Movie.price must be positive'),
 });
