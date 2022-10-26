@@ -33,7 +33,6 @@ const movieSchema = Schema({
   },
   play: {
     type: String,
-    required: true,
   },
 }, {
   timestamps: true,
@@ -58,18 +57,17 @@ const movieValidationSchema = yup.object().shape({
     .string().typeError('Movie.img must be a string')
     .required('Movie.img is required'),
   bigImg: yup
-    .string().typeError('Movie.img must be a string')
-    .required('Movie.img is required'),
+    .string().typeError('Movie.bigImg must be a string')
+    .required('Movie.bigImg is required'),
   trailer: yup
-    .string().typeError('Movie.img must be a string')
-    .required('Movie.img is required'),
+    .string().typeError('Movie.trailer must be a string')
+    .required('Movie.trailer is required'),
   play: yup
-    .string().typeError('Movie.img must be a string')
-    .required('Movie.img is required'),
+    .string().typeError('Movie.play must be a string'),
   date: yup
-    .number().typeError('Movie.price must be a number')
-    .required('Movie.price is required')
-    .positive('Movie.price must be positive'),
+    .number().typeError('Movie.date must be a number')
+    .required('Movie.date is required')
+    .positive('Movie.date must be positive'),
 });
 
 const movieUpdateValidationSchema = yup.object().shape({
@@ -83,14 +81,14 @@ const movieUpdateValidationSchema = yup.object().shape({
     ),
   img: yup.string().typeError('Movie.img must be a string'),
   bigImg: yup
-    .string().typeError('Movie.img must be a string'),
+    .string().typeError('Movie.bigImg must be a string'),
   trailer: yup
-    .string().typeError('Movie.img must be a string'),
+    .string().typeError('Movie.trailer must be a string'),
   play: yup
-    .string().typeError('Movie.img must be a string'),
+    .string().typeError('Movie.play must be a string'),
   date: yup.number()
-    .typeError('Movie.price must be a number')
-    .positive('Movie.price must be positive'),
+    .typeError('Movie.date must be a number')
+    .positive('Movie.date must be positive'),
 });
 
 movieSchema.statics.validateData = (movieData) => movieValidationSchema.validate(movieData);
