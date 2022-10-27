@@ -1,4 +1,4 @@
-# BackEND project/Movies server
+# BackEND server project/MovieBox server
 
 ## install dependecies
 ```
