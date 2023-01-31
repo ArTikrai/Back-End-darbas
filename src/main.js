@@ -10,9 +10,9 @@ const authRouter = require('./routers/auth-router');
 const server = express();
 
 const {
-  SERVER_DOMAIN, SERVER_PROTOCOL, SERVER_PORT, DB_CONNECTION, TOKEN_SECRET,
+  REACT_APP_SERVER_ADDRESS, DB_CONNECTION, TOKEN_SECRET,
 } = process.env;
-const constantsConfiguredInEnvFile = SERVER_DOMAIN && SERVER_PROTOCOL && SERVER_PORT
+const constantsConfiguredInEnvFile = REACT_APP_SERVER_ADDRESS
   && DB_CONNECTION && TOKEN_SECRET;
 
 try {
@@ -34,12 +34,12 @@ try {
     }
 
     console.log('connected to MongoDB Atlass');
-    server.listen(SERVER_PORT, (error) => {
+    server.listen(REACT_APP_SERVER_ADDRESS, (error) => {
       if (error) {
         console.error(error.message);
       }
 
-      console.log(`server launched on ${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}`);
+      console.log(`server launched on ${REACT_APP_SERVER_ADDRESS}`);
     });
   });
 } catch (err) {
