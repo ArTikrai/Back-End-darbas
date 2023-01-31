@@ -10,6 +10,7 @@ const authRouter = require('./routers/auth-router');
 const server = express();
 
 const {
+  LISTEN_PORTS,
   REACT_APP_SERVER_ADDRESS, DB_CONNECTION, TOKEN_SECRET,
 } = process.env;
 const constantsConfiguredInEnvFile = REACT_APP_SERVER_ADDRESS
@@ -34,7 +35,7 @@ try {
     }
 
     console.log('connected to MongoDB Atlass');
-    server.listen(REACT_APP_SERVER_ADDRESS, (error) => {
+    server.listen(LISTEN_PORTS, (error) => {
       if (error) {
         console.error(error.message);
       }
