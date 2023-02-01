@@ -4,13 +4,15 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const app = express();
+const PORT = process.env.PORT || 3030;
+
 const apiRouter = require('./routers/api-router');
 const authRouter = require('./routers/auth-router');
 
 const server = express();
 
 const {
-  LISTEN_PORTS,
   REACT_APP_SERVER_ADDRESS, DB_CONNECTION, TOKEN_SECRET,
 } = process.env;
 const constantsConfiguredInEnvFile = REACT_APP_SERVER_ADDRESS
@@ -35,12 +37,12 @@ try {
     }
 
     console.log('connected to MongoDB Atlass');
-    server.listen(LISTEN_PORTS, (error) => {
+    app.listen(PORT, (error) => {
       if (error) {
         console.error(error.message);
       }
 
-      console.log(`server launched on ${REACT_APP_SERVER_ADDRESS}`);
+      console.log(`server launched on ${PORT}`);
     });
   });
 } catch (err) {
