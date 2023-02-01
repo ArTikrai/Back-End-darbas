@@ -4,7 +4,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const app = express();
 const PORT = process.env.PORT || 3030;
 
 const apiRouter = require('./routers/api-router');
@@ -37,7 +36,7 @@ try {
     }
 
     console.log('connected to MongoDB Atlass');
-    app.listen(PORT, (error) => {
+    server.listen(PORT, (error) => {
       if (error) {
         console.error(error.message);
       }
